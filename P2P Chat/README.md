@@ -17,10 +17,6 @@
 
 **This project is alpha quality.** You probably only want to use this if you like to send pull requests fixing things :)
 
-## How it works
-
-See [our site](http://moose-team.github.io/friends/) or the `gh-pages` branch.
-
 ## Install
 
 ### Prerequisites
