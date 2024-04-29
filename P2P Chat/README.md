@@ -11,7 +11,7 @@
 
 ![screenshot](static/screenshot.png)
 
-**This project is alpha quality.** You probably only want to use this if you like to send pull requests fixing things :)
+**This project is of great quality.**
 
 ## Install
 
