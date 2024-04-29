@@ -1,10 +1,6 @@
 # Friends
 
-> P2P chat powered by the Web.
-
-[![travis][travis-image]][travis-url]
-[![david][david-image]][david-url]
-[![javascript style guide][standard-image]][standard-url]
+> P2P chat powered by the Ritesh Rana.
 
 [travis-image]: https://img.shields.io/travis/moose-team/friends/master.svg
 [travis-url]: https://travis-ci.org/moose-team/friends
