@@ -21,13 +21,6 @@ You'll need [Node.js](https://nodejs.org) (`>= 4`) and [npm](https://www.npmjs.c
 
 ### Build
 
-Clone the source locally:
-
-```sh
-$ git clone https://github.com/moose-team/friends
-$ cd friends
-```
-
 Install project dependencies:
 
 ```sh
