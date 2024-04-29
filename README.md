@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Friends
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> P2P chat powered by the Ritesh Rana.
 
-## Available Scripts
+![screenshot](static/screenshot.png)
 
-In the project directory, you can run:
+**This project is great quality.**
 
-### `npm start`
+## Install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You'll need [Node.js](https://nodejs.org) (`>= 4`) and [npm](https://www.npmjs.com/package/npm) (`>= 2.8.3`).
 
-### `npm test`
+Install project dependencies:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+$ npm install
+```
 
-### `npm run build`
+Compile leveldown for [electron](http://electron.atom.io/):
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+$ npm run rebuild-leveldb
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If you are not on 64-bit architecture, you will have to modify the command in package.json:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+"rebuild-leveldb": "cd node_modules/leveldown && set HOME=~/.electron-gyp && node-gyp rebuild --target=$(../../version.js) --arch=x64 --dist-url=https://atom.io/download/atom-shell"
+```
 
-### `npm run eject`
+to use `--arch=ia32`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### GitHub Login
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Friends currently uses your git and github configuration for authentication.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+If you don't already have a public key on GitHub and corresponding private key on your machine, you'll need to [set that up first](https://help.github.com/articles/generating-ssh-keys/). Make sure your github username is also set, using `git config --global github.user yourusername`.
 
-## Learn More
+If you're having trouble getting this part to work, do this to get debug information:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+$ npm i github-current-user -g
+$ DEBUG=* github-current-user
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+and then report an [issue](https://github.com/moose-team/friends/issues).
 
-### Code Splitting
+**Note**: DSA keys are not supported. You should switch to RSA anyway for security reasons.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If it can't verify you, try doing `ssh-add ~/.ssh/id_rsa`. Your key should show up when you run `ssh-add -l`.
 
-### Analyzing the Bundle Size
+### Run
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To run from the command line, execute `npm start`.
 
-### Making a Progressive Web App
+To create a distributable app, run `npm run package`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contributing
 
-### Advanced Configuration
+Contributions welcome! Please read the [contributing guidelines](CONTRIBUTING.md) before getting started.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## License
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT](LICENSE.md)
